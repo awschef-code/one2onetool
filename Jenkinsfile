@@ -16,7 +16,7 @@ node('master') {
          print "Environment will be : ${env.NODE_ENV}"
          
          sh 'yum install -y gcc-c++ make ; curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash - ; yum install nodejs -y'
-         sh 'node -v ;npm prune ;  npm test'
+         sh 'node -v  ;  npm test'
        }
 
        stage('Build Docker'){
@@ -29,7 +29,7 @@ node('master') {
        stage('Deploy'){
       
             echo 'We can verify the new node.js application run'
-            sh './jenkins/deliver.sh'
+            sh './deliver.sh'
         }
 
        stage('Cleanup'){
